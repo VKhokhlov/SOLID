@@ -3,6 +3,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
+    public static final int SIZE = 10;
 
     public static void main(String[] args) {
         HashMap<String, Integer> products = new HashMap<>();
@@ -18,10 +19,12 @@ public class Main {
 
         System.out.println("Введите два слова: название товара и количество. Или end");
         Scanner scanner = new Scanner(System.in);
-        Purchase purchase = new Purchase();
+        Purchase purchase = new Purchase(SIZE);
         while (true) {
             String line = scanner.nextLine();
-            if ("end".equals(line)) break;
+            if ("end".equals(line)) {
+                break;
+            }
             String[] parts = line.split(" ");
             String product = parts[0];
             int count = Integer.parseInt(parts[1]);
